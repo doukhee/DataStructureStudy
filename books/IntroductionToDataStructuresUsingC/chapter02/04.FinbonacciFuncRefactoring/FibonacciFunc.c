@@ -4,6 +4,8 @@
 */
 /** 피보나치 수열의 n번째 값 반환 */
 int Fibo(int n){
+    /** 함수의 호출 순서를 보기 위한 코드 */
+    printf("func call param %d \r\n", n);
     /** 피보나치 수열의 첫번째 값을 요구하면 0을 반환 */
     if(n == 1){
         return 0;
@@ -18,9 +20,7 @@ int Fibo(int n){
 
 int main(void){
     int i;
-    for(i = 1; i < 15; i++){
-        printf("%d ", Fibo(i));
-    }
-    printf("\r\n");
+    
+    Fibo(7);
     return 0;
 }
