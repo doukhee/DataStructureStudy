@@ -1,8 +1,8 @@
 CC = gcc
 
-SRCS = LinearSearch.c
+SRCS = BSWorstOpCount.c
 
-TARGET = LinearSearch
+TARGET = BSWorstOpCount
 
 BUILDDIR = buildDir
 
@@ -13,11 +13,11 @@ all: clean createdirs build
 createdirs:
 	$(shell mkdir ${BUILDDIR})
 
-build: $(COBJS)
-	$(CC) -o $(BUILDDIR)/$(TARGET) $^
-
-$(COBJS): $(BUILDDIR)/%.o : %.c
+$(COBJS):$(BUILDDIR)/%.o : %.c
 	$(CC) -o $@ -c $<
+
+build:$(COBJS)
+	$(CC) -o $(BUILDDIR)/$(TARGET) $^
 
 clean:
 	rm -rf $(BUILDDIR)

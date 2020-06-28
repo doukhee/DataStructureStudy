@@ -1,23 +1,24 @@
 CC = gcc
 
-SRCS = LinearSearch.c
+SRCS = BinarySearch.c
 
-TARGET = LinearSearch
+TARGET = BinarySearch
 
 BUILDDIR = buildDir
 
 COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
+
 
 all: clean createdirs build
 
 createdirs:
 	$(shell mkdir ${BUILDDIR})
 
+$(COBJS):$(BUILDDIR)/%.o : %.c
+	$(CC) -o $@ -c $<
+
 build: $(COBJS)
 	$(CC) -o $(BUILDDIR)/$(TARGET) $^
-
-$(COBJS): $(BUILDDIR)/%.o : %.c
-	$(CC) -o $@ -c $<
 
 clean:
 	rm -rf $(BUILDDIR)

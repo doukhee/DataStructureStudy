@@ -1,8 +1,8 @@
 CC = gcc
 
-SRCS = LinearSearch.c
+SRCS = RecursiveFactorial.c
 
-TARGET = LinearSearch
+TARGET = RecursiveFactorial
 
 BUILDDIR = buildDir
 
@@ -13,11 +13,11 @@ all: clean createdirs build
 createdirs:
 	$(shell mkdir ${BUILDDIR})
 
+$(COBJS):$(BUILDDIR)/%.o : %.c
+	$(CC) -o $@ -c $<
+
 build: $(COBJS)
 	$(CC) -o $(BUILDDIR)/$(TARGET) $^
-
-$(COBJS): $(BUILDDIR)/%.o : %.c
-	$(CC) -o $@ -c $<
 
 clean:
 	rm -rf $(BUILDDIR)
