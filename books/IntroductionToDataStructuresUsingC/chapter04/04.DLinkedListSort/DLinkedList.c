@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "DLinkedList.h"
 
+
 /** Linked List 초기화 */
 void ListInit(List *plist){
     /** 첫번째에 노드 생성 */
@@ -13,6 +14,7 @@ void ListInit(List *plist){
     /** 현재 데이터 수 0으로 초기화 */
     plist->numOfData = 0;
 }
+
 /** 첫번째 데이터 삽입 */
 void FInsert(List *plist, LData data){
     /** 새로운 노드 만들기 */
@@ -26,6 +28,7 @@ void FInsert(List *plist, LData data){
     /** 저장된 노드의 수를 하나 증가시킴 */
     (plist->numOfData)++;
 }
+
 /** 두번째 부터 데이터 삽입 */
 void SInsert(List *plist, LData data){
     /** 새로운 노드 생성 */
@@ -57,6 +60,8 @@ void LInsert(List *plist, LData pdata){
     }
 }
 
+
+
 /** 첫번째 노드로 이동 */
 int LFirst(List *plist, LData *pdata){
     /** 더미노드가 NULL을 가르킨다면 false 반환 */
@@ -86,6 +91,7 @@ int LNext(List *plist, LData *pdata){
     *pdata = plist->cur->data;
     return TRUE;
 }
+
 
 /** 데이터 삭제 */
 LData LRemove(List *plist){
