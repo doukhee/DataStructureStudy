@@ -52,9 +52,10 @@ void LInsert(List* plist, Data data){
     }else{
         /** 새로운 노드의 다음을 끝 지점의 다음 지점(시작 지점)을 가르키게 한다. */
         newNode->next = plist->tail->next;
-        /** 끝 지점의 다음 지점에 새로운 노드 삽입 */
+        /** 끝 지점의 다음 지점에 새로운 노드 삽입 및 기존에 있던 마지막 부분을 현재 노드로 설정 */
         plist->tail->next = newNode;
         /** 새로운 노드는 끝 지점에 위치하게 한다. */
+        /** 끝 지점이라는 것을 명시 */
         plist->tail = newNode;
     }
     /** 데이터 수 카운트 */
