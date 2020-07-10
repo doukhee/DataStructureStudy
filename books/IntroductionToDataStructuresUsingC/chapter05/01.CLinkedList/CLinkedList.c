@@ -9,23 +9,30 @@ void ListInit(List *plist){
     plist->numOfData = 0;
 }
 
+/** 첫 부분에 데이터 삽입 */
 void LInsertFront(List *plist, Data data){
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->data = data;
-
+    /** 첫번째 노드 라면, */
     if(plist->tail == NULL){
+        /** tail이 새로운 노드를 가르키게 한다. */
         plist->tail = newNode;
+        /** 새 노드 다음을 자신을 가르킨다. */
         newNode->next = newNode;
+    /** 두번쩨 이후의 노드라면,  */
     }else{
+
         newNode->next = plist->tail->next;
         plist->tail->next = newNode;
     }
     (plist->numOfData)++;
 }
 
+/** 마지막 부분에 데이터 삽입 */
 void LInsert(List* plist, Data data){
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->data = data;
+    /** 첫번째 노드 라면, */
     if(plist->tail == NULL){
         plist->tail = newNode;
         newNode->next = newNode;

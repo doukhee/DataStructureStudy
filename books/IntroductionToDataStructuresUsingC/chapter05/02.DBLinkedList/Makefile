@@ -1,19 +1,18 @@
 CC = gcc
 
-SRCS = DLinkedList.c DLinkedListSortMain.c
+SRCS = DBLinkedList.c DBLinkedListMain.c
 
-EXTRAINCDIRS = DLinkedList.h
+EXTRAINCDIRS = DBLinkedList.hs
 
-BUILDDIR = buildDir
+BUILDDIR = buildDiir
 
-TARGET = DLinkedListSortMain
+TARGET = DBLinkedList
 
 COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
 
-C_INC = $(patsubst %,-I%, $(EXTRAINCDIRS))
+C_INC = $(patsubst %,-I%,$(EXTRAINCDIRS))
 
 all: clean createdirs build
-
 
 createdirs:
 	$(shell mkdir ${BUILDDIR})
@@ -27,4 +26,5 @@ build: $(COBJS)
 clean:
 	rm -rf $(BUILDDIR)
 
-.SUFFIXES: .c .o
+
+SUFFIXES: .c .o
