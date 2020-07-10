@@ -5,7 +5,7 @@
 
 /** Linked List 초기화 */
 void ListInit(List *plist){
-    /** 첫번째에 노드 생성 */
+    /** 첫번째에 더미 노드 생성 */
     plist->head = (Node *)malloc(sizeof(Node));
     /** 다음 노드 NULL로 초기화 */
     plist->head->next = NULL;
@@ -16,12 +16,16 @@ void ListInit(List *plist){
 }
 
 /** 첫번째 데이터 삽입 */
+/** 
+ * 처음 데이터가 나중에 나온다.
+ */
 void FInsert(List *plist, LData data){
     /** 새로운 노드 만들기 */
     Node *newNode = (Node *)malloc(sizeof(Node));
     /** 구조체 노드에 데이터 저장 */
     newNode->data = data;
     /** 새로운 노드의 다음을 다른 노드를 가르키게 설정 */
+    /** 이렇게 하는 이유가 기존 연결이 끊어지 않게 하기 위해서 */
     newNode->next = plist->head->next;
     /** 더미노드가 새 노드를 가르키게 설정 */
     plist->head->next = newNode;
@@ -39,6 +43,7 @@ void SInsert(List *plist, LData data){
     newNode->data = data;
     /** 새로운 구조체 노드를 삽입할 지점 찾기 */
     while(pred->next != NULL && plist->comp(data, pred->next->data) != 0){
+        /** 삽입 지점 정하기 */
         pred = pred->next;
     }
     /** 새로운 노드 삽입 하기 전에 기존에 있던 다음 위치를 새로운 노드에 연결을 해준다 */
@@ -51,11 +56,11 @@ void SInsert(List *plist, LData data){
 
 /** 데이터 삽입 함수 */
 void LInsert(List *plist, LData pdata){
-    /** 비교 연삽이 없을 경우 FInsert() 실행*/
+    /** 비교 연삽이 없을 경우 FInsert() 실행 */
     if(plist->comp == NULL){
         FInsert(plist, pdata);
     }else{
-        /** 비교 연삽이 있을 경우  SInsert() 실행*/
+        /** 비교 연삽이 있을 경우  SInsert() 실행 */
         SInsert(plist, pdata);
     }
 }

@@ -4,13 +4,17 @@
 /** Node 선언 */
 typedef struct _node{
     int data;
+    /** 다음을 연결하기 위한 구조체 포인터 변수 */
     struct _node *next;
 } Node;
 
 int main(void){
     /** 시작 부분 초기화 */
+    /** 시작 주소 값 */
     Node *head = NULL;
+    /** 마지막 주소 값 */
     Node *tail = NULL;
+    /** 현재 주소 값 */
     Node *cur = NULL;
     /** 새로운 변수 선언 */
     Node *newNode = NULL;
