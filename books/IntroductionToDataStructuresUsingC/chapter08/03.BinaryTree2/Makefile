@@ -1,12 +1,12 @@
 CC = gcc
 
-SRCS = DequeMain.c Deque.c
+SRCS = BianryTree2Main.c BinaryTree2.c
 
-C_HEADER = Deque.h
+C_HEADER = BinaryTree2.h
 
 C_INC = $(patsubst %,-I%, $(C_HEADER))
 
-TARGET = DequeMain
+TARGET = BianryTree2Main
 
 BUILDDIR = buildDir
 

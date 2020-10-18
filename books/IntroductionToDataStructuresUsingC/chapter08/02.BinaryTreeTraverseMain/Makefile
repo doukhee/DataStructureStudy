@@ -1,12 +1,12 @@
 CC = gcc
 
-SRCS = DequeMain.c Deque.c
+SRCS = BinaryTreeMain.c BinaryTree.c
 
-C_HEADER = Deque.h
+C_HEADER = BinaryTree.h
 
 C_INC = $(patsubst %,-I%, $(C_HEADER))
 
-TARGET = DequeMain
+TARGET = BinaryTreeMain
 
 BUILDDIR = buildDir
 
@@ -26,4 +26,4 @@ $(COBJS):$(BUILDDIR)/%.o : %.c
 clean:
 	rm -rf $(BUILDDIR)
 
-.SUFFIXES: .c .o
+SUFFIXES: .c .o
