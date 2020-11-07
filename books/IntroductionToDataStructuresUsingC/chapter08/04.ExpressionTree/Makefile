@@ -1,6 +1,6 @@
 CC = gcc
 
-SRCS = BinaryTree2.c ExpressionTree.c ListBaseStack.c ExpressionTreeMain.c
+SRCS = BinaryTree2.c ExpressionTree.c ListBaseStack.c ExpressionMain.c
 
 C_HEADER = BinaryTree2.h ExpressionTree.h ListBaseStack.h
 
